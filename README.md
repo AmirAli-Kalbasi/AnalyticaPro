@@ -1,5 +1,9 @@
 # AnalyticaPro
 
+## Status: Ongoing Development 🚧
+
+This project is currently under development. Contributions, feedback, and suggestions are welcome!
+
 ## DataLoader: A Comprehensive and Flexible Multi-Format Data Loading Utility
 The DataLoader class within AnalyticaPro is a robust and highly adaptable tool designed for efficiently loading and preprocessing datasets from various file formats, including CSV, Excel, MATLAB (.mat), JSON, HDF5, Parquet, Feather, Stata, SPSS, Pickle, and images. This utility is especially suited for handling complex, hierarchical directory structures, making it a valuable asset for data scientists, engineers, and researchers working with large and diverse datasets.
 
