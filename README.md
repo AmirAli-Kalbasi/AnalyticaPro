@@ -28,9 +28,9 @@ The DataLoader class within AnalyticaPro is a robust and highly adaptable tool d
     ```
     This structure can be represented by the list levels = ['groups', 'tests', 'rats'], where:
 
-        - 'groups' corresponds to G1, G2, G3,
-        - 'tests' corresponds to PreTest, PostTest, and
-        - 'rats' corresponds to the individual records or datasets such as R1, R2.
+      - 'groups' corresponds to G1, G2, G3,
+      - 'tests' corresponds to PreTest, PostTest, and
+      - 'rats' corresponds to the individual records or datasets such as R1, R2.
 
 - Multi-Format Support: Capable of handling a wide range of data formats, the DataLoader is designed to seamlessly integrate with various data types, from traditional tabular data to MATLAB files and complex image datasets.
 
