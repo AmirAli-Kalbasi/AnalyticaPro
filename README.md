@@ -6,31 +6,31 @@ The DataLoader class within AnalyticaPro is a robust and highly adaptable tool d
 ### Key Features:
 - Recursive Directory Traversal: Automatically navigates and processes data from nested directories based on user-defined levels, streamlining data loading from organized and hierarchical file systems.
   - Example Structure:
-```plaintext
-/data_path/
-    ├── G1/
-    │   ├── PreTest/
-    │   │   ├── R1/
-    │   │   │   ├── file1.csv
-    │   │   │   ├── file2.csv
-    │   │   └── R2/
-    │   └── PostTest/
-    │       ├── R1/
+    ```plaintext
+    /data_path/
+        ├── G1/
+        │   ├── PreTest/
+        │   │   ├── R1/
+        │   │   │   ├── file1.csv
+        │   │   │   ├── file2.csv
+        │   │   └── R2/
+        │   └── PostTest/
+        │       ├── R1/
     │       └── R2/
-    ├── G2/
-    .
-    .
-    .
-    └── G3/
-    .
-    .
-    .
-```
-This structure can be represented by the list levels = ['groups', 'tests', 'rats'], where:
+        ├── G2/
+        .
+        .
+        .
+        └── G3/
+        .
+        .
+        .
+    ```
+    This structure can be represented by the list levels = ['groups', 'tests', 'rats'], where:
 
-'groups' corresponds to G1, G2, G3,
-'tests' corresponds to PreTest, PostTest, and
-'rats' corresponds to the individual records or datasets such as R1, R2.
+        - 'groups' corresponds to G1, G2, G3,
+        - 'tests' corresponds to PreTest, PostTest, and
+        - 'rats' corresponds to the individual records or datasets such as R1, R2.
 
 - Multi-Format Support: Capable of handling a wide range of data formats, the DataLoader is designed to seamlessly integrate with various data types, from traditional tabular data to MATLAB files and complex image datasets.
 
