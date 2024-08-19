@@ -4,9 +4,6 @@
 - [Status](#Status)
 - [DataLoader](#DataLoader)
   - [Key Features](#DataLoader_Key_Features)
-- [DataNormalizer](#DataNormalizer)
-  - [Key Features](#DataNormalizer_Key_Features)
-  - [Example](#ImagePreprocessor_Example) 
 - [ImagePreprocessor](#ImagePreprocessor)
   - [Key Features](#ImagePreprocessor_Key_Features)
   - [Example](#ImagePreprocessor_Example)
@@ -67,42 +64,6 @@ This utility is ideal for professionals who require a dependable and versatile t
 
 
 [View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/data_loader.py)
-
-## DataNormalizer
-The DataNormalizer class is a flexible and efficient Python utility designed to normalize data in batches, compatible with various data types including tabular data (e.g., CSV, Excel) and image data. It integrates seamlessly with the [DataLoader class](#DataLoader). This tool is particularly useful for machine learning and data preprocessing tasks, where data needs to be standardized before feeding it into models.
-
-### Key Features 
-<a name="DataNormalizer_Key_Features"></a>
-- Batch Processing: Normalize data in user-defined batch sizes, which is ideal for handling large datasets that cannot be loaded entirely into memory.
-- Multiple Normalization Methods: Supports a variety of normalization techniques, including:
-  - Z-score Normalization: Standardizes data to have a mean of 0 and a standard deviation of 1.
-  - Min-Max Scaling: Scales data to a specified range, typically [0, 1].
-  - Max-Abs Scaling: Scales data by its maximum absolute value, useful for preserving sparsity.
-  - Robust Scaling: Uses median and interquartile range for scaling, making it robust to outliers.
-- Supports Various Data Types: Compatible with both tabular data (pandas DataFrames) and image data (numpy arrays or tensors from frameworks like TensorFlow and PyTorch).
-- Automatic Column Handling: Automatically handles column extraction and renaming for DataFrame inputs, based on user specifications.
-
-### Example
-<a name="DataNormalizer_Example"></a>
-```python
-base_dir = '/content/drive/My Drive/small_English_dataset'
-levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
-
-# Initialize the DataLoader for CSV files
-data_loader = DataLoader(base_dir, levels, file_format = 'image', framework = 'tensorflow')
-
-normalizer = DataNormalizer(batch_size=32, normalization_method='minmax')
-
-# Normalize data in batches
-for normalized_data, hierarchy, filename in normalizer.normalize_batch(data_loader):
-    print(f"Normalized {filename} with hierarchy: {hierarchy}")
-    if isinstance(normalized_data, pd.DataFrame):
-        print(normalized_data.head())
-    else:
-        print(normalized_data.shape)
-```
-
-[View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/DataNormalizer.py)
 
 ## ImagePreprocessor
 
