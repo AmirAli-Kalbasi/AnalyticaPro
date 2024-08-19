@@ -229,7 +229,7 @@ levels = ['test_train', 'personality']  # This can be any list of levels you wan
 data_loader = DataLoader(base_dir, levels, file_format='image', framework='tensorflow', batch_size=16)
 
 # MATLAB:
-data_loader = DataLoader(base_dir, levels, file_format = '.mat', mat_var_name = 'Pulse')
+data_loader = DataLoader(base_dir, levels, file_format = 'mat', mat_var_name = 'Pulse')
 
 # CSV:
 base_dir = '/content/drive/My Drive/Neuroscience Project'
