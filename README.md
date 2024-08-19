@@ -1,4 +1,12 @@
 # AnalyticaPro
+## Table of Contents
+
+- [Status](#Status)
+- [DataLoader](#DataLoader)
+  - [Key Features](#Key_Features)
+- [DataNormalizer](#DataNormalizer)
+  - [Key Features](#Key_Features)
+  - [Example](#Example)
 
 ## Status: Ongoing Development 🚧
 
@@ -7,7 +15,7 @@ This project is currently under development. Contributions, feedback, and sugges
 ## DataLoader: A Comprehensive and Flexible Multi-Format Data Loading Utility
 The DataLoader class within AnalyticaPro is a robust and highly adaptable tool designed for efficiently loading and preprocessing datasets from various file formats, including CSV, Excel, MATLAB (.mat), JSON, HDF5, Parquet, Feather, Stata, SPSS, Pickle, and images. This utility is especially suited for handling complex, hierarchical directory structures, making it a valuable asset for data scientists, engineers, and researchers working with large and diverse datasets.
 
-### Key Features:
+### Key_Features:
 - Recursive Directory Traversal: Automatically navigates and processes data from nested directories based on user-defined levels, streamlining data loading from organized and hierarchical file systems.
   - Example Structure:
     ```plaintext
@@ -52,9 +60,9 @@ This utility is ideal for professionals who require a dependable and versatile t
 [View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/data_loader.py)
 
 ## DataNormalizer
-The DataNormalizer class is a flexible and efficient Python utility designed to normalize data in batches, compatible with various data types including tabular data (e.g., CSV, Excel) and image data. It integrates seamlessly with the [DataLoader class](#DataLoader). This tool is particularly useful for machine learning and data preprocessing tasks, where data needs to be standardized before feeding it into models.
+The DataNormalizer class is a flexible and efficient Python utility designed to normalize data in batches, compatible with various data types including tabular data (e.g., CSV, Excel) and image data. It integrates seamlessly with the [DataLoader class](##DataLoader). This tool is particularly useful for machine learning and data preprocessing tasks, where data needs to be standardized before feeding it into models.
 
-### Key Features:
+### Key_Features:
 - Batch Processing: Normalize data in user-defined batch sizes, which is ideal for handling large datasets that cannot be loaded entirely into memory.
 - Multiple Normalization Methods: Supports a variety of normalization techniques, including:
   - Z-score Normalization: Standardizes data to have a mean of 0 and a standard deviation of 1.
