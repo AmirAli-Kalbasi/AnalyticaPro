@@ -10,6 +10,9 @@
 - [ImagePreprocessor](#ImagePreprocessor)
   - [Key Features](#ImagePreprocessor_Key_Features)
   - [Example](#ImagePreprocessor_Example)
+- [DataFramePreprocessor](#DataFramePreprocessor)
+  - [Key Features](#DataFramePreprocessor_Key_Features)
+  - [Example](#DataFramePreprocessor_Example)
 
 ## Status: Ongoing Development 🚧
 
@@ -173,6 +176,7 @@ for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
 The `DataFramePreprocessor` class is a versatile and efficient tool designed to streamline the preprocessing of pandas DataFrames. It offers a variety of preprocessing techniques essential for preparing data for analysis or machine learning models. The class is built to handle large datasets efficiently, with support for batch processing and optional parallel execution.
 
 #### Key Features:
+<a name="DataFramePreprocessor_Key_Features"></a>
 
 1. **Handling Missing Values**:
    - Provides multiple strategies for dealing with missing data, including filling with mean, median, mode, or dropping missing values.
@@ -192,7 +196,8 @@ The `DataFramePreprocessor` class is a versatile and efficient tool designed to 
 6. **Parallel Processing**:
    - Capable of parallel execution to take full advantage of multi-core processors, significantly reducing preprocessing time for large datasets.
 
-#### Example Usage:
+#### Example:
+<a name="DataFramePreprocessor_Example"></a>
 
 ```python
 # Initialize the DataFramePreprocessor with desired settings
@@ -224,3 +229,5 @@ for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
 ```
 
 The `DataFramePreprocessor` is designed to be flexible, allowing you to easily customize the preprocessing pipeline to suit the specific needs of your project. Whether you're handling missing data, normalizing features, detecting outliers, or selecting the most important features, this class provides a robust foundation for efficient data preprocessing.
+
+[View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/DataFramePreprocessor.py)
