@@ -54,7 +54,7 @@ The DataLoader class within AnalyticaPro is a robust and highly adaptable tool d
 
 - Scalable and Efficient: Designed with scalability in mind, the DataLoader can handle large datasets efficiently, making it suitable for both small-scale and enterprise-level projects.
 
-Batch Loading: This feature efficiently loads data in batches, allowing for memory-efficient processing of large datasets. The batch size is customizable, making it ideal for workflow handling data in manageable chunks. 
+- Batch Loading: This feature efficiently loads data in batches, allowing for memory-efficient processing of large datasets. The batch size is customizable, making it ideal for workflow handling data in manageable chunks. 
 
 This utility is ideal for professionals who require a dependable and versatile tool to manage and preprocess data in multiple formats as part of a larger data analysis or machine learning pipeline. Whether you are working on exploratory data analysis, data preparation for modeling, or integrating various data sources, DataLoader offers the flexibility and functionality needed to simplify your workflow.
 
