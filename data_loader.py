@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 class DataLoader:
-    def __init__(self, base_dir, levels, columns=None, column_names=None, file_format='csv', mat_var_name='data', framework='opencv'):
+    def __init__(self, base_dir, levels, columns=None, column_names=None, file_format='csv', mat_var_name='data', framework='opencv', batch_size=32):
         """
         Initializes the DataLoader.
 
@@ -15,6 +15,7 @@ class DataLoader:
         - file_format: The format of the files to be loaded ('csv', 'excel', 'mat', 'json', 'hdf5', 'parquet', 'feather', 'stata', 'spss', 'pickle', 'image'). Default is 'csv'.
         - mat_var_name: The name of the variable to extract from MATLAB files. Required if file_format is 'mat'. Default is 'data'.
         - framework: The framework to use for image loading ('opencv', 'tensorflow', 'pytorch'). Default is 'opencv'.
+        - batch_size: The number of data items to yield in each batch. Default is 32.
         """
         self.base_dir = base_dir
         self.levels = levels
@@ -23,6 +24,7 @@ class DataLoader:
         self.file_format = file_format.lower()
         self.mat_var_name = mat_var_name
         self.framework = framework.lower()
+        self.batch_size = batch_size
 
         if self.file_format == 'mat' and not self.mat_var_name:
             raise ValueError("mat_var_name must be specified when file_format is 'mat'.")
@@ -32,11 +34,20 @@ class DataLoader:
         Loads the data by recursively traversing the directory structure according to the levels specified.
 
         Yields:
-        - Data (pandas DataFrame or image data).
-        - A dictionary with the hierarchy information for each data file.
-        - The filename of the loaded file.
+        - A batch of data (list of pandas DataFrames or image data).
+        - A list of dictionaries with the hierarchy information for each data file.
+        - A list of filenames for the loaded files.
         """
-        yield from self._recursive_load(self.base_dir, {})
+        batch_data, batch_hierarchy, batch_filenames = [], [], []
+        for data, hierarchy, filename in self._recursive_load(self.base_dir, {}):
+            batch_data.append(data)
+            batch_hierarchy.append(hierarchy)
+            batch_filenames.append(filename)
+            if len(batch_data) == self.batch_size:
+                yield batch_data, batch_hierarchy, batch_filenames
+                batch_data, batch_hierarchy, batch_filenames = [], [], []
+        if batch_data:  # Yield remaining data if any
+            yield batch_data, batch_hierarchy, batch_filenames
 
     def _recursive_load(self, current_dir, hierarchy):
         """
@@ -198,9 +209,25 @@ base_dir = 'small_English_dataset'
 levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
 
 # image:
-data_loader = DataLoader(base_dir, levels, file_format = 'image', framework = 'tensorflow')
+data_loader = DataLoader(base_dir, levels, file_format='image', framework='tensorflow', batch_size=16)
 
+# Load and process the data in batches
+for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
+    print(f"Loaded batch with files: {batch_filenames}")
+    for data in batch_data:
+        if isinstance(data, pd.DataFrame):
+            print(data.head())  # Display the first few rows of the DataFrame
+        else:
+            print(type(data))  # Display the type of the loaded image data
+
+# Example usage:
 '''
+base_dir = 'small_English_dataset'
+levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
+
+# image:
+data_loader = DataLoader(base_dir, levels, file_format='image', framework='tensorflow', batch_size=16)
+
 # MATLAB:
 data_loader = DataLoader(base_dir, levels, file_format = '.mat', mat_var_name = 'Pulse')
 
