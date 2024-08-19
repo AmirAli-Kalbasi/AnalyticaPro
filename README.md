@@ -3,13 +3,13 @@
 
 - [Status](#Status)
 - [DataLoader](#DataLoader)
-  - [Key Features](#Key_Features)
+  - [Key Features](#DataLoader_Key_Features)
 - [DataNormalizer](#DataNormalizer)
-  - [Key Features](#Key_Features)
-  - [Example](#Example)
+  - [Key Features](#DataNormalizer_Key_Features)
+  - [Example](#ImagePreprocessor_Example) 
 - [ImagePreprocessor](#ImagePreprocessor)
-  - [Key Features](#Key_Features)
-  - [Example](#Example)
+  - [Key Features](#ImagePreprocessor_Key_Features)
+  - [Example](#ImagePreprocessor_Example)
 
 ## Status: Ongoing Development 🚧
 
@@ -18,7 +18,7 @@ This project is currently under development. Contributions, feedback, and sugges
 ## DataLoader: A Comprehensive and Flexible Multi-Format Data Loading Utility
 The DataLoader class within AnalyticaPro is a robust and highly adaptable tool designed for efficiently loading and preprocessing datasets from various file formats, including CSV, Excel, MATLAB (.mat), JSON, HDF5, Parquet, Feather, Stata, SPSS, Pickle, and images. This utility is especially suited for handling complex, hierarchical directory structures, making it a valuable asset for data scientists, engineers, and researchers working with large and diverse datasets.
 
-### Key_Features:
+### Key Features {#DataLoader_Key_Features}
 - Recursive Directory Traversal: Automatically navigates and processes data from nested directories based on user-defined levels, streamlining data loading from organized and hierarchical file systems.
   - Example Structure:
     ```plaintext
@@ -67,7 +67,7 @@ This utility is ideal for professionals who require a dependable and versatile t
 ## DataNormalizer
 The DataNormalizer class is a flexible and efficient Python utility designed to normalize data in batches, compatible with various data types including tabular data (e.g., CSV, Excel) and image data. It integrates seamlessly with the [DataLoader class](#DataLoader). This tool is particularly useful for machine learning and data preprocessing tasks, where data needs to be standardized before feeding it into models.
 
-### Key_Features:
+### Key Features {#DataNormalizer_Key_Features}
 - Batch Processing: Normalize data in user-defined batch sizes, which is ideal for handling large datasets that cannot be loaded entirely into memory.
 - Multiple Normalization Methods: Supports a variety of normalization techniques, including:
   - Z-score Normalization: Standardizes data to have a mean of 0 and a standard deviation of 1.
@@ -77,7 +77,7 @@ The DataNormalizer class is a flexible and efficient Python utility designed to 
 - Supports Various Data Types: Compatible with both tabular data (pandas DataFrames) and image data (numpy arrays or tensors from frameworks like TensorFlow and PyTorch).
 - Automatic Column Handling: Automatically handles column extraction and renaming for DataFrame inputs, based on user specifications.
 
-### Example
+### Example {#DataNormalizer_Key_Features}
 ```python
 base_dir = '/content/drive/My Drive/small_English_dataset'
 levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
@@ -102,7 +102,7 @@ for normalized_data, hierarchy, filename in normalizer.normalize_batch(data_load
 
 The ImagePreprocessor class is a comprehensive and flexible tool designed for efficient and effective image preprocessing and augmentation, tailored for machine learning and deep learning workflows. This utility is built to handle various image preprocessing tasks, offering a wide range of functionalities, including:
 
-### Key_Features:
+### Key Features {#ImagePreprocessor_Key_Features}
 - Resizing and Cropping: Easily resize images to a target size or crop specific regions for focused analysis.
 - Padding and Color Space Conversion: Add padding to images and convert between different color spaces (RGB, Grayscale, HSV).
 - Clipping and Binarization: Clip pixel values to a specified range and binarize images using a threshold.
@@ -115,7 +115,7 @@ The ImagePreprocessor class is a comprehensive and flexible tool designed for ef
 This class is ideal for data scientists, machine learning engineers, and researchers who require a robust and versatile image preprocessing toolkit. The ImagePreprocessor class is designed to streamline the preparation of image datasets, making it easier to focus on model development and experimentation.
 
 
-### Example
+### Example {#ImagePreprocessor_Example}
 ```python
 base_dir = '...'
 levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
