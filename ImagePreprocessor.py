@@ -1,12 +1,12 @@
 class ImagePreprocessor:
-    def __init__(self, target_size=(224, 224), normalization_method='zscore', augment=None, 
+    def __init__(self, target_size=None, normalization_method=None, augment=None, 
                  parallel=False, batch_size=32, crop=None, padding=None, color_space=None, 
                  clip_range=None, binarize_threshold=None, noise_type=None, blur_type=None):
         """
         Initializes the ImagePreprocessor.
         """
-        self.target_size = target_size
-        self.normalization_method = normalization_method.lower()
+        self.target_size = target_size  # If None, resizing is skipped
+        self.normalization_method = normalization_method.lower() if normalization_method else None  # If None, normalization is skipped
         self.augment = augment if augment else {}
         self.parallel = parallel
         self.batch_size = batch_size
@@ -87,8 +87,9 @@ class ImagePreprocessor:
             elif self.color_space == 'hsv':
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-        # Resize image
-        image = cv2.resize(image, self.target_size)
+        # Resize image if target_size is specified
+        if self.target_size:
+            image = cv2.resize(image, self.target_size)
 
         # Clip pixel values if specified
         if self.clip_range:
@@ -107,8 +108,9 @@ class ImagePreprocessor:
         if self.blur_type:
             image = self._apply_blur(image, self.blur_type)
 
-        # Normalize image
-        image = self._normalize(image)
+        # Normalize image if normalization_method is specified
+        if self.normalization_method:
+            image = self._normalize(image)
 
         # Apply data augmentation if enabled
         if self.datagen:
@@ -143,7 +145,7 @@ class ImagePreprocessor:
         """
         image = np.expand_dims(image, 0)  # Expand dimensions to fit the generator's input format
         it = self.datagen.flow(image, batch_size=1)
-        augmented_image = next(it)[0].astype('float32')  # Use Python's built-in next()
+        augmented_image = next(it)[0].astype('float32')  
         return augmented_image
 
     def _add_noise(self, image, noise_type):
@@ -181,4 +183,3 @@ class ImagePreprocessor:
             return cv2.medianBlur(image, 5)
         else:
             raise ValueError(f"Unsupported blur type: {blur_type}")
-
