@@ -67,7 +67,8 @@ This utility is ideal for professionals who require a dependable and versatile t
 ## DataNormalizer
 The DataNormalizer class is a flexible and efficient Python utility designed to normalize data in batches, compatible with various data types including tabular data (e.g., CSV, Excel) and image data. It integrates seamlessly with the [DataLoader class](#DataLoader). This tool is particularly useful for machine learning and data preprocessing tasks, where data needs to be standardized before feeding it into models.
 
-### Key Features <a name="DataNormalizer_Key_Features"></a>
+### Key Features 
+<a name="DataNormalizer_Key_Features"></a>
 - Batch Processing: Normalize data in user-defined batch sizes, which is ideal for handling large datasets that cannot be loaded entirely into memory.
 - Multiple Normalization Methods: Supports a variety of normalization techniques, including:
   - Z-score Normalization: Standardizes data to have a mean of 0 and a standard deviation of 1.
