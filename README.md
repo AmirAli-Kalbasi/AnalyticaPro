@@ -165,3 +165,62 @@ for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
 ```
 
 [View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/ImagePreprocessor.py)
+
+
+
+### DataFramePreprocessor
+
+The `DataFramePreprocessor` class is a versatile and efficient tool designed to streamline the preprocessing of pandas DataFrames. It offers a variety of preprocessing techniques essential for preparing data for analysis or machine learning models. The class is built to handle large datasets efficiently, with support for batch processing and optional parallel execution.
+
+#### Key Features:
+
+1. **Handling Missing Values**:
+   - Provides multiple strategies for dealing with missing data, including filling with mean, median, mode, or dropping missing values.
+
+2. **Data Normalization/Scaling**:
+   - Supports several normalization methods such as Z-score, Min-Max scaling, Max-Abs scaling, and Robust scaling, allowing for standardized data preparation.
+
+3. **Outlier Detection and Handling**:
+   - Offers robust methods to detect and remove outliers using Z-score or Interquartile Range (IQR), ensuring that extreme values do not skew the analysis.
+
+4. **Feature Selection**:
+   - Includes feature selection techniques like Variance Thresholding, Correlation Thresholding, Principal Component Analysis (PCA), and Linear Discriminant Analysis (LDA). Parameters for these methods can be easily customized through a dictionary interface.
+
+5. **Batch Processing**:
+   - Designed to process data in batches, making it suitable for large datasets. The batch size is configurable, ensuring that the class can handle data efficiently without overwhelming system memory.
+
+6. **Parallel Processing**:
+   - Capable of parallel execution to take full advantage of multi-core processors, significantly reducing preprocessing time for large datasets.
+
+#### Example Usage:
+
+```python
+# Initialize the DataFramePreprocessor with desired settings
+df_preprocessor = DataFramePreprocessor(
+    missing_values_strategy='mean',  # Fill missing values with the mean
+    normalization_method='zscore',   # Normalize using Z-score normalization
+    outlier_method='iqr',            # Handle outliers using the IQR method
+    feature_selection_method='correlation',  # Perform feature selection based on correlation
+    feature_selection_params={'correlation_threshold': 0.90},  # Set the correlation threshold
+    parallel=True,  # Enable parallel processing
+    batch_size=16   # Set batch size for processing
+)
+
+# Preprocess a list of DataFrames
+preprocessed_dfs = df_preprocessor.preprocess_batch(dfs)
+```
+
+#### Integration Example:
+
+This class can be seamlessly integrated with a `DataLoader` for end-to-end data processing:
+
+```python
+# Example DataLoader and DataFramePreprocessor integration
+
+# Load and preprocess data in batches
+for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
+    preprocessed_batch = df_preprocessor.preprocess_batch(batch_data)
+    # Use preprocessed data for analysis or model training
+```
+
+The `DataFramePreprocessor` is designed to be flexible, allowing you to easily customize the preprocessing pipeline to suit the specific needs of your project. Whether you're handling missing data, normalizing features, detecting outliers, or selecting the most important features, this class provides a robust foundation for efficient data preprocessing.
