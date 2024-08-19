@@ -7,6 +7,9 @@
 - [DataNormalizer](#DataNormalizer)
   - [Key Features](#Key_Features)
   - [Example](#Example)
+- [ImagePreprocessor](#ImagePreprocessor)
+  - [Key Features](#Key_Features)
+  - [Example](#Example)
 
 ## Status: Ongoing Development 🚧
 
@@ -91,6 +94,69 @@ for normalized_data, hierarchy, filename in normalizer.normalize_batch(data_load
         print(normalized_data.head())
     else:
         print(normalized_data.shape)
+```
+
+[View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/DataNormalizer.py)
+
+## ImagePreprocessor
+
+The ImagePreprocessor class is a comprehensive and flexible tool designed for efficient and effective image preprocessing and augmentation, tailored for machine learning and deep learning workflows. This utility is built to handle various image preprocessing tasks, offering a wide range of functionalities, including:
+
+### Key_Features:
+Resizing and Cropping: Easily resize images to a target size or crop specific regions for focused analysis.
+Padding and Color Space Conversion: Add padding to images and convert between different color spaces (RGB, Grayscale, HSV).
+Clipping and Binarization: Clip pixel values to a specified range and binarize images using a threshold.
+Noise Addition and Blurring: Add Gaussian or salt-and-pepper noise and apply Gaussian or median blurring for image smoothing.
+Normalization: Supports multiple normalization methods, including z-score, min-max, max-abs, and robust normalization to suit various machine learning models.
+Data Augmentation: Integrates seamlessly with TensorFlow's ImageDataGenerator to perform complex data augmentation, including rotations, shifts, shears, zooms, flips, and brightness adjustments.
+Parallel and Batch Processing: Efficiently preprocess large datasets by leveraging parallel processing and batch handling, ensuring scalability for large-scale projects.
+Compatibility: Works with both TensorFlow and PyTorch, supporting images as tensors and enabling smooth integration into deep learning pipelines.
+This class is ideal for data scientists, machine learning engineers, and researchers who require a robust and versatile image preprocessing toolkit. The ImagePreprocessor class is designed to streamline the preparation of image datasets, making it easier to focus on model development and experimentation.
+
+
+### Example
+```python
+base_dir = '...'
+levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
+
+# image:
+data_loader = DataLoader(base_dir, levels, file_format='image', framework='pytorch', batch_size=64)
+
+# Define the augmentation options (if needed)
+augmentations = {
+    'rotation': 20,
+    'width_shift': 0.2,
+    'height_shift': 0.2,
+    'shear': 0.2,
+    'zoom': 0.2,
+    'horizontal_flip': True,
+    'vertical_flip': False,
+    'brightness': [0.8, 1.2]
+}
+
+
+# Initialize the ImagePreprocessor
+image_preprocessor = ImagePreprocessor(
+    target_size=(224, 224),
+    normalization_method='minmax',
+    augment=augmentations,
+    parallel=True,
+    color_space='rgb',  # Convert images to RGB color space
+    clip_range=(0, 255),
+    noise_type='gaussian',
+    blur_type='gaussian'
+)
+
+# Process the data in batches
+for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
+    # Preprocess the images in the batch
+    preprocessed_images = image_preprocessor.preprocess_batch(batch_data)
+    
+    # work with the preprocessed_images
+    for i, image in enumerate(preprocessed_images):
+        print(f"Processed image from file: {batch_filenames[i]}")
+        print(f"Processed image shape: {image.shape}")
+
 ```
 
 [View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/DataNormalizer.py)
