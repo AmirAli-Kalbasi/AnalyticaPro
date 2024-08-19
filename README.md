@@ -103,14 +103,15 @@ for normalized_data, hierarchy, filename in normalizer.normalize_batch(data_load
 The ImagePreprocessor class is a comprehensive and flexible tool designed for efficient and effective image preprocessing and augmentation, tailored for machine learning and deep learning workflows. This utility is built to handle various image preprocessing tasks, offering a wide range of functionalities, including:
 
 ### Key_Features:
-Resizing and Cropping: Easily resize images to a target size or crop specific regions for focused analysis.
-Padding and Color Space Conversion: Add padding to images and convert between different color spaces (RGB, Grayscale, HSV).
-Clipping and Binarization: Clip pixel values to a specified range and binarize images using a threshold.
-Noise Addition and Blurring: Add Gaussian or salt-and-pepper noise and apply Gaussian or median blurring for image smoothing.
-Normalization: Supports multiple normalization methods, including z-score, min-max, max-abs, and robust normalization to suit various machine learning models.
-Data Augmentation: Integrates seamlessly with TensorFlow's ImageDataGenerator to perform complex data augmentation, including rotations, shifts, shears, zooms, flips, and brightness adjustments.
-Parallel and Batch Processing: Efficiently preprocess large datasets by leveraging parallel processing and batch handling, ensuring scalability for large-scale projects.
-Compatibility: Works with both TensorFlow and PyTorch, supporting images as tensors and enabling smooth integration into deep learning pipelines.
+- Resizing and Cropping: Easily resize images to a target size or crop specific regions for focused analysis.
+- Padding and Color Space Conversion: Add padding to images and convert between different color spaces (RGB, Grayscale, HSV).
+- Clipping and Binarization: Clip pixel values to a specified range and binarize images using a threshold.
+- Noise Addition and Blurring: Add Gaussian or salt-and-pepper noise and apply Gaussian or median blurring for image smoothing.
+- Normalization: Supports multiple normalization methods, including z-score, min-max, max-abs, and robust normalization to suit various machine learning models.
+- Data Augmentation: Integrates seamlessly with TensorFlow's ImageDataGenerator to perform complex data augmentation, including rotations, shifts, shears, zooms, flips, and brightness adjustments.
+- Parallel and Batch Processing: Efficiently preprocess large datasets by leveraging parallel processing and batch handling, ensuring scalability for large-scale projects.
+- Compatibility: Works with both TensorFlow and PyTorch, supporting images as tensors and enabling smooth integration into deep learning pipelines.
+
 This class is ideal for data scientists, machine learning engineers, and researchers who require a robust and versatile image preprocessing toolkit. The ImagePreprocessor class is designed to streamline the preparation of image datasets, making it easier to focus on model development and experimentation.
 
 
@@ -159,4 +160,4 @@ for batch_data, batch_hierarchy, batch_filenames in data_loader.load_data():
 
 ```
 
-[View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/DataNormalizer.py)
+[View the code](https://github.com/AmirAli-Kalbasi/AnalyticaPro/blob/main/ImagePreprocessor.py)
