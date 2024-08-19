@@ -18,7 +18,8 @@ This project is currently under development. Contributions, feedback, and sugges
 ## DataLoader: A Comprehensive and Flexible Multi-Format Data Loading Utility
 The DataLoader class within AnalyticaPro is a robust and highly adaptable tool designed for efficiently loading and preprocessing datasets from various file formats, including CSV, Excel, MATLAB (.mat), JSON, HDF5, Parquet, Feather, Stata, SPSS, Pickle, and images. This utility is especially suited for handling complex, hierarchical directory structures, making it a valuable asset for data scientists, engineers, and researchers working with large and diverse datasets.
 
-### Key Features {#DataLoader_Key_Features}
+### Key Features
+<a name="DataLoader_Key_Features"></a>
 - Recursive Directory Traversal: Automatically navigates and processes data from nested directories based on user-defined levels, streamlining data loading from organized and hierarchical file systems.
   - Example Structure:
     ```plaintext
@@ -78,7 +79,8 @@ The DataNormalizer class is a flexible and efficient Python utility designed to 
 - Supports Various Data Types: Compatible with both tabular data (pandas DataFrames) and image data (numpy arrays or tensors from frameworks like TensorFlow and PyTorch).
 - Automatic Column Handling: Automatically handles column extraction and renaming for DataFrame inputs, based on user specifications.
 
-### Example {#DataNormalizer_Key_Features}
+### Example
+<a name="DataNormalizer_Example"></a>
 ```python
 base_dir = '/content/drive/My Drive/small_English_dataset'
 levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
@@ -103,7 +105,8 @@ for normalized_data, hierarchy, filename in normalizer.normalize_batch(data_load
 
 The ImagePreprocessor class is a comprehensive and flexible tool designed for efficient and effective image preprocessing and augmentation, tailored for machine learning and deep learning workflows. This utility is built to handle various image preprocessing tasks, offering a wide range of functionalities, including:
 
-### Key Features {#ImagePreprocessor_Key_Features}
+### Key Features 
+<a name="ImagePreprocessor_Key_Features"></a>
 - Resizing and Cropping: Easily resize images to a target size or crop specific regions for focused analysis.
 - Padding and Color Space Conversion: Add padding to images and convert between different color spaces (RGB, Grayscale, HSV).
 - Clipping and Binarization: Clip pixel values to a specified range and binarize images using a threshold.
@@ -115,8 +118,8 @@ The ImagePreprocessor class is a comprehensive and flexible tool designed for ef
 
 This class is ideal for data scientists, machine learning engineers, and researchers who require a robust and versatile image preprocessing toolkit. The ImagePreprocessor class is designed to streamline the preparation of image datasets, making it easier to focus on model development and experimentation.
 
-
-### Example {#ImagePreprocessor_Example}
+### Example
+<a name="ImagePreprocessor_Example"></a>
 ```python
 base_dir = '...'
 levels = ['test_train', 'personality']  # This can be any list of levels you want to traverse
